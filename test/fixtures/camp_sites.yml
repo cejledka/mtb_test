@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  description: MyString
+  city: one
+  distance: 1
+  price: 1
+
+two:
+  name: MyString
+  description: MyString
+  city: two
+  distance: 1
+  price: 1
