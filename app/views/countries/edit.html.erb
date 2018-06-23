@@ -1,0 +1,15 @@
+<%= form_with method: :patch, scope: @country, url: country_edit_url(@country.id), local: true do |form| %>
+  <p>
+    <%= form.label :name, 'Название' %><br>
+    <%= form.text_field :name%>
+  </p>
+
+  <p>
+    <%= form.label :currency, 'Валюта'%><br>
+    <%= form.text_field :currency%>
+  </p>
+
+  <p>
+    <%= form.submit 'Обновить' %>
+  </p>
+<% end %>

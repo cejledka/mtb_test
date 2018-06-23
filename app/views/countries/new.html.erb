@@ -1,0 +1,15 @@
+<%= form_with scope: :country, url: country_new_url, local: false do |form| %>
+  <p>
+    <%= form.label :name, 'Название' %><br>
+    <%= form.text_field :name %>
+  </p>
+
+  <p>
+    <%= form.label :currency, 'Валюта'%><br>
+    <%= form.text_field :currency %>
+  </p>
+
+  <p>
+    <%= form.submit 'Добавить' %>
+  </p>
+<% end %>

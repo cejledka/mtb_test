@@ -1,0 +1,20 @@
+
+<h1>Страны</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th>Название</th>
+    <th>Валюта</th>
+    <th></th>
+  </tr>
+
+  <% @countries.each do |country| %>
+    <tr>
+      <td><%= link_to "✏", country_edit_url(country.id) %></td>
+      <td><%= link_to country.name, country_url(country.id) %></td>
+      <td><%= country.currency %></td>
+      <td><%= link_to "❌ ", country_delete_url(country.id) , method: :delete%></td>
+    </tr>
+  <% end %>
+</table>
