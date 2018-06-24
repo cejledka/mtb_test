@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_23_130929) do
+ActiveRecord::Schema.define(version: 2018_06_24_135534) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 2018_06_23_130929) do
     t.index ["country_id"], name: "index_regions_on_country_id"
   end
 
-  add_foreign_key "camp_sites", "cities"
-  add_foreign_key "cities", "regions"
-  add_foreign_key "regions", "countries"
+  add_foreign_key "camp_sites", "cities", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "cities", "regions", on_update: :cascade, on_delete: :cascade
+  add_foreign_key "regions", "countries", on_update: :cascade, on_delete: :cascade
 end
