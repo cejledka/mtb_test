@@ -1,0 +1,20 @@
+
+<h1>Города</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th>Название</th>
+    <th>Регион</th>
+    <th></th>
+  </tr>
+
+  <% @cities.each do |city| %>
+    <tr>
+      <td><%= link_to "✏", city_edit_url(city.id) %></td>
+      <td><%= link_to city.name, city_url(city.id) %></td>
+      <td><%= link_to city.region.name, region_url(city.region.id) %> (<%= link_to city.region.country.name, country_url(city.region.country.id) %>)</td>
+      <td><%= link_to "❌ ", city_delete_url(city.id) , method: :delete%></td>
+    </tr>
+  <% end %>
+</table>

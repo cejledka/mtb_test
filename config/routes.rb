@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+  get 'cities', to: 'cities#index'
+  get 'cities/index'
+  get 'cities/show/:id', to: 'cities#show'
+  get 'cities/edit/:id', to: 'cities#edit'
+  patch 'cities/edit/:id', to: 'cities#update'
+  delete 'cities/delete/:id', to: 'cities#delete'
+  get 'cities/new'
+  post 'cities/new', to: 'cities#create'
+
   get 'regions', to: 'regions#index'
   get 'regions/index'
   get 'regions/show/:id', to: 'regions#show'

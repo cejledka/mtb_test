@@ -1,0 +1,15 @@
+<%= form_with scope: :city, url: city_new_url, local: false do |form| %>
+  <p>
+    <%= form.label :name, 'Название' %><br>
+    <%= form.text_field :name %>
+  </p>
+
+  <p>
+    <%= form.label :region_id, 'Регион' %><br>
+    <%= form.select(:region_id, options_for_select(@regions.map {|region| ["#{region.name} (#{region.country.name})", region.id]})) %>
+  </p>
+
+  <p>
+    <%= form.submit 'Добавить' %>
+  </p>
+<% end %>
