@@ -24,7 +24,11 @@
         <img class="card-img-top" src="<%= asset_path 'placeholder' %>">
         <div class="card-body">
           <p class="card-text"><%= camp_site.description %></p>
-          <a class="card-link text-success" href="<%= camp_site_url camp_site.id %>">От <%= camp_site.price %> <%=camp_site.city.region.country.currency %></a>
+          <% if camp_site.price %>
+            <a class="card-link text-success" href="<%= camp_site_url camp_site.id %>">От <%= camp_site.price %> <%=camp_site.city.region.country.currency %></a>
+          <% else %>
+            <a class="card-link text-success" href="<%= camp_site_url camp_site.id %>">Подробнее</a>
+          <% end %>
         </div>
         <div class="card-footer">
           <%= camp_site.city.name %>, <%= camp_site.city.region.name %>, <%= camp_site.city.region.country.name %>
