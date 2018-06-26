@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'camp_sites#index'
+
   get 'camp_sites', to: 'camp_sites#index'
   get 'camp_sites/index'
   get 'camp_sites/show/:id', to: 'camp_sites#show'
@@ -26,7 +28,6 @@ Rails.application.routes.draw do
   get 'regions/new'
   post 'regions/new', to: 'regions#create'
 
-  root 'countries#index'
   get 'countries', to: 'countries#index'
   get 'countries/index'
   get 'countries/show/:id', to: 'countries#show'
