@@ -1,0 +1,26 @@
+<%= render "shared/header" %>
+
+<p>
+  <strong>Название:</strong>
+  <%= @camp_site.name %>
+</p>
+
+<p>
+  <strong>Местоположение:</strong>
+  <%= @camp_site.city.name %>, <%= @camp_site.city.region.name %>, <%= @camp_site.city.region.country.name %>
+</p>
+
+<p>
+  <strong>Описание:</strong>
+  <%= @camp_site.description %>
+</p>
+
+<p>
+  <strong>Км от города:</strong>
+  <%= @camp_site.distance %> км
+</p>
+
+<p>
+  <strong>Стоимость проживания:</strong>
+  <%= @camp_site.price %> <%= @camp_site.city.region.country.currency %>
+</p>

@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+  get 'camp_sites', to: 'camp_sites#index'
+  get 'camp_sites/index'
+  get 'camp_sites/show/:id', to: 'camp_sites#show'
+  get 'camp_sites/edit/:id', to: 'camp_sites#edit'
+  patch 'camp_sites/edit/:id', to: 'camp_sites#update'
+  delete 'camp_sites/delete/:id', to: 'camp_sites#delete'
+  get 'camp_sites/new'
+  post 'camp_sites/new', to: 'camp_sites#create'
+
   get 'cities', to: 'cities#index'
   get 'cities/index'
   get 'cities/show/:id', to: 'cities#show'

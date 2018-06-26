@@ -1,0 +1,25 @@
+<%= render "shared/header" %>
+
+<h1>Турбазы</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th>Название</th>
+    <th>Местоположение</th>
+    <th>Стоимость</th>
+    <th></th>
+  </tr>
+
+  <% @camp_sites.each do |camp_site| %>
+    <tr>
+      <td><%= link_to "✏", camp_site_edit_url(camp_site.id) %></td>
+      <td><%= link_to camp_site.name, camp_site_url(camp_site.id) %></td>
+      <td><%= link_to camp_site.city.name, city_url(camp_site.city.id) %>, <%= link_to camp_site.city.region.name, region_url(camp_site.city.region.id) %>, <%= link_to camp_site.city.region.country.name, country_url(camp_site.city.region.country.id) %></td>
+      <td><%= camp_site.price %> <%= camp_site.city.region.country.currency %></td>
+      <td><%= link_to "❌ ", camp_site_delete_url(camp_site.id) , method: :delete%></td>
+    </tr>
+  <% end %>
+
+  <%= link_to "Добавить", camp_sites_new_url%>
+</table>

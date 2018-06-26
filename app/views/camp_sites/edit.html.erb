@@ -1,0 +1,32 @@
+<%= render "shared/header" %>
+
+<%= form_with method: :patch, scope: @camp_site, url: camp_site_edit_url(@camp_site.id), local: true do |form| %>
+  <p>
+    <%= form.label :name, 'Название' %><br>
+    <%= form.text_field :name %>
+  </p>
+
+  <p>
+    <%= form.label :city_id, 'Город' %><br>
+    <%= form.select(:city_id, options_for_select(@cities.map {|city| ["#{city.name} (#{city.region.country.name}, #{city.region.name})", city.id]})) %>
+  </p>
+
+  <p>
+    <%= form.label :description, 'Описание' %><br>
+    <%= form.text_area :description %>
+  </p>
+
+  <p>
+    <%= form.label :distance, 'Км от города' %><br>
+    <%= form.number_field :distance %>
+  </p>
+
+  <p>
+    <%= form.label :price, 'Стоимость проживания' %><br>
+    <%= form.number_field :price %>
+  </p>
+
+  <p>
+    <%= form.submit 'Обновить' %>
+  </p>
+<% end %>
