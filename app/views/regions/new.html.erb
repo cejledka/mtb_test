@@ -1,17 +1,18 @@
 <%= render "shared/header" %>
 
-<%= form_with scope: :region, url: region_new_url, local: false do |form| %>
-  <p>
-    <%= form.label :name, 'Название' %><br>
-    <%= form.text_field :name %>
-  </p>
+<div class="container">
+  <%= form_with scope: :region, url: region_new_url, local: false do |form| %>
+    <div class="form-group">
+      <%= form.label :name, 'Название' %><br>
+      <%= form.text_field :name, class: "form-control" %>
+      <small class="form-text text-muted">От 3 до 35 символов</small>
+    </div>
 
-  <p>
-    <%= form.label :country_id, 'Страна' %><br>
-    <%= form.select(:country_id, options_for_select(@countries.map {|country| ["#{country.name} (#{country.currency})", country.id]})) %>
-  </p>
+      <div class="form-group">
+      <%= form.label :country_id, 'Страна' %><br>
+      <%= form.select(:country_id, options_for_select(@countries.map {|country| ["#{country.name} (#{country.currency})", country.id]}), {}, {class: "form-control"}) %>
+    </div>
 
-  <p>
-    <%= form.submit 'Добавить' %>
-  </p>
-<% end %>
+    <%= form.submit 'Добавить', class: "btn btn-primary"%>
+  <% end %>
+</div>

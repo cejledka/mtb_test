@@ -1,7 +1,19 @@
 class CampSitesController < ApplicationController
   include CampSitesHelper
   def index
-    @camp_sites = CampSite.includes(city: {region: :country}).all
+    @camp_sites_all = CampSite.includes(city: {region: :country}).all
+    @camp_sites = []
+    cols = 3
+    row_count = -1
+
+    @camp_sites_all.each_with_index do |camp_site, i|
+      if i % cols == 0
+        @camp_sites << []
+        row_count+=1
+      end
+      @camp_sites[row_count] << camp_site
+    end
+    p @camp_sites
   end
 
   def show

@@ -1,17 +1,19 @@
 <%= render "shared/header" %>
 
-<%= form_with scope: :country, url: country_new_url, local: false do |form| %>
-  <p>
-    <%= form.label :name, 'Название' %><br>
-    <%= form.text_field :name %>
-  </p>
+<div class="container">
+  <%= form_with scope: :country, url: country_new_url, local: false do |form| %>
+    <div class="form-group">
+      <%= form.label :name, 'Название' %>
+      <%= form.text_field :name, class: "form-control" %>
+      <small class="form-text text-muted">Название должно быть уникальным, от 3 до 35 символов</small>
+    </div>
 
-  <p>
-    <%= form.label :currency, 'Валюта'%><br>
-    <%= form.text_field :currency %>
-  </p>
+    <div class="form-group">
+      <%= form.label :currency, 'Валюта'%>
+      <%= form.text_field :currency, class: "form-control" %>
+      <small class="form-text text-muted">Три прописные латинские буквы. Например: RUB</small>
+    </div>
 
-  <p>
-    <%= form.submit 'Добавить' %>
-  </p>
-<% end %>
+    <%= form.submit 'Добавить', class: "btn btn-primary"%>
+  <% end %>
+</div>

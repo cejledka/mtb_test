@@ -1,32 +1,36 @@
 <%= render "shared/header" %>
 
-<%= form_with method: :patch, scope: @camp_site, url: camp_site_edit_url(@camp_site.id), local: true do |form| %>
-  <p>
-    <%= form.label :name, 'Название' %><br>
-    <%= form.text_field :name %>
-  </p>
+<div class="container">
+  <%= form_with method: :patch, scope: @camp_site, url: camp_site_edit_url(@camp_site.id), local: false do |form| %>
+    <div class="form-group">
+      <%= form.label :name, 'Название'%><br>
+      <%= form.text_field :name, class: "form-control" %>
+      <small class="form-text text-muted">От 3 до 35 символов</small>
+    </div>
 
-  <p>
-    <%= form.label :city_id, 'Город' %><br>
-    <%= form.select(:city_id, options_for_select(@cities.map {|city| ["#{city.name} (#{city.region.country.name}, #{city.region.name})", city.id]})) %>
-  </p>
+    <div class="form-group">
+      <%= form.label :city_id, 'Город' %><br>
+      <%= form.select(:city_id, options_for_select(@cities.map {|city| ["#{city.name} (#{city.region.country.name}, #{city.region.name})", city.id]}), {}, {class: "form-control"}) %>
+    </div>
 
-  <p>
-    <%= form.label :description, 'Описание' %><br>
-    <%= form.text_area :description %>
-  </p>
+    <div class="form-group">
+      <%= form.label :description, 'Описание' %><br>
+      <%= form.text_area :description, class: "form-control" %>
+      <small class="form-text text-muted">До 200 символов</small>
+    </div>
 
-  <p>
-    <%= form.label :distance, 'Км от города' %><br>
-    <%= form.number_field :distance %>
-  </p>
+    <div class="form-group">
+      <%= form.label :distance, 'Км от города' %><br>
+      <%= form.number_field :distance, class: "form-control" %>
+      <small class="form-text text-muted">Целое число не меньше нуля</small>
+    </div>
 
-  <p>
-    <%= form.label :price, 'Стоимость проживания' %><br>
-    <%= form.number_field :price %>
-  </p>
+    <div class="form-group">
+      <%= form.label :price, 'Стоимость проживания' %><br>
+      <%= form.number_field :price, class: "form-control" %>
+      <small class="form-text text-muted">Число не меньше нуля</small>
+    </div>
 
-  <p>
-    <%= form.submit 'Обновить' %>
-  </p>
-<% end %>
+    <%= form.submit 'Обновить', class: "btn btn-primary"%>
+  <% end %>
+</div>

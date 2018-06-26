@@ -1,23 +1,33 @@
 <%= render "shared/header" %>
 
-<h1>Регионы</h1>
+<div class="container">
+  <div class="row justify-content-center mb-5">
+    <div class="col-4">
+      <h1 class="display-4">Регионы</h1>
+    </div>
+  </div>
 
-<table>
-  <tr>
-    <th></th>
-    <th>Название</th>
-    <th>Страна</th>
-    <th></th>
-  </tr>
+  <div class="row justify-content-center mb-3">
+    <div class="col-3">
+      <a href="<%= regions_new_url %>" class="btn btn-success" role="button">Добавить</a>
+    </div>
+  </div>
 
-  <% @regions.each do |region| %>
+  <table class="table table-borderless text-center">
     <tr>
-      <td><%= link_to "✏", region_edit_url(region.id) %></td>
-      <td><%= link_to region.name, region_url(region.id) %></td>
-      <td><%= link_to region.country.name, country_url(region.country.id) %></td>
-      <td><%= link_to "❌ ", region_delete_url(region.id) , method: :delete%></td>
+      <th></th>
+      <th>Название</th>
+      <th>Страна</th>
+      <th></th>
     </tr>
-  <% end %>
 
-  <%= link_to "Добавить", regions_new_url%>
-</table>
+    <% @regions.each do |region| %>
+      <tr>
+        <td><a href="<%= region_edit_url(region.id) %>" class="btn btn-warning" role="button">✏</a></td>
+        <td><%= link_to region.name, region_url(region.id) %></td>
+        <td><%= link_to region.country.name, country_url(region.country.id) %></td>
+        <td><a data-method="delete" href="<%= region_delete_url(region.id) %>" class="btn btn-danger" role="button">❌ </a></td>
+      </tr>
+    <% end %>
+  </table>
+</div>

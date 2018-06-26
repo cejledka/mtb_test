@@ -1,25 +1,36 @@
 <%= render "shared/header" %>
 
-<h1>Турбазы</h1>
+<div class="container">
+  <div class="row justify-content-center mb-5">
+    <div class="col-4">
+      <h1 class="display-4">Турбазы</h1>
+    </div>
+  </div>
 
-<table>
-  <tr>
-    <th></th>
-    <th>Название</th>
-    <th>Местоположение</th>
-    <th>Стоимость</th>
-    <th></th>
-  </tr>
+  <div class="row justify-content-center mb-3">
+    <div class="col-3">
+      <a href="<%= camp_sites_new_url %>" class="btn btn-success" role="button">Добавить</a>
+    </div>
+  </div>
+</div>
 
-  <% @camp_sites.each do |camp_site| %>
-    <tr>
-      <td><%= link_to "✏", camp_site_edit_url(camp_site.id) %></td>
-      <td><%= link_to camp_site.name, camp_site_url(camp_site.id) %></td>
-      <td><%= link_to camp_site.city.name, city_url(camp_site.city.id) %>, <%= link_to camp_site.city.region.name, region_url(camp_site.city.region.id) %>, <%= link_to camp_site.city.region.country.name, country_url(camp_site.city.region.country.id) %></td>
-      <td><%= camp_site.price %> <%= camp_site.city.region.country.currency %></td>
-      <td><%= link_to "❌ ", camp_site_delete_url(camp_site.id) , method: :delete%></td>
-    </tr>
+
+<div class="container">
+  <% @camp_sites.each do |camp_site_row| %>
+  <div class="card-deck mb-3">
+    <% camp_site_row.each do |camp_site| %>
+      <div class="card text-center">
+        <h5 class="card-header"><%= camp_site.name %></h5>
+        <img class="card-img-top" src="<%= asset_path 'placeholder' %>">
+        <div class="card-body">
+          <p class="card-text"><%= camp_site.description %></p>
+          <a class="card-link text-success" href="<%= camp_site_url camp_site.id %>">От <%= camp_site.price %> <%=camp_site.city.region.country.currency %></a>
+        </div>
+        <div class="card-footer">
+          <%= camp_site.city.name %>, <%= camp_site.city.region.name %>, <%= camp_site.city.region.country.name %>
+        </div>
+      </div>
+    <% end %>
+  </div>
   <% end %>
-
-  <%= link_to "Добавить", camp_sites_new_url%>
-</table>
+</div>

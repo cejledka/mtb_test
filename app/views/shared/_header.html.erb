@@ -1,6 +1,14 @@
-<tr>
-  <td><%= link_to "Турбазы", camp_sites_index_url%></td>
-  <td><%= link_to "Города", cities_index_url%></td>
-  <td><%= link_to "Регионы", regions_index_url%></td>
-  <td><%= link_to "Страны", countries_index_url%></td>
-</tr>
+
+<nav class="navbar navbar-expand-lg navbar-light">
+  <a class="navbar-brand" href="#">
+    <img src="<%= asset_path 'logo.png' %>" width="40" height="40" alt="">
+  </a>
+  <div>
+    <div class="navbar-nav">
+      <a class="nav-item nav-link" href=<%= camp_sites_index_url %>>Турбазы</a>
+      <a class="nav-item nav-link" href=<%= cities_index_url %>>Города</a>
+      <a class="nav-item nav-link" href=<%= regions_index_url %>>Регионы</a>
+      <a class="nav-item nav-link" href=<%= countries_index_url %>>Страны</a>
+    </div>
+  </div>
+</nav>

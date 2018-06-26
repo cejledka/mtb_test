@@ -1,17 +1,18 @@
 <%= render "shared/header" %>
 
-<%= form_with method: :patch, scope: @city, url: city_edit_url(@city.id), local: true do |form| %>
-  <p>
-    <%= form.label :name, 'Название' %><br>
-    <%= form.text_field :name%>
-  </p>
+<div class="container">
+  <%= form_with method: :patch, scope: @city, url: city_edit_url(@city.id), local: false do |form| %>
+    <div class="form-group">
+    <%= form.label :name, 'Название' %>
+    <%= form.text_field :name, class: "form-control" %>
+    <small class="form-text text-muted">От 3 до 50 символов</small>
+  </div>
 
-  <p>
-    <%= form.label :country_id, 'Регион' %><br>
-    <%= form.select(:country_id, options_for_select(@regions.map {|region| ["#{region.name} (#{region.country.name})", region.id]})) %>
-  </p>
+    <div class="form-group">
+      <%= form.label :region_id, 'Регион' %>
+      <%= form.select(:region_id, options_for_select(@regions.map {|region| ["#{region.name} (#{region.country.name})", region.id]}), {}, {class: "form-control"}) %>
+    </div>
 
-  <p>
-    <%= form.submit 'Обновить' %>
-  </p>
-<% end %>
+    <%= form.submit 'Обновить', class: "btn btn-primary"%>
+  <% end %>
+</div>
