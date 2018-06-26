@@ -21,7 +21,7 @@
     <% camp_site_row.each do |camp_site| %>
       <div class="card text-center">
         <h5 class="card-header"><%= camp_site.name %></h5>
-        <img class="card-img-top" src="<%= asset_path 'placeholder' %>">
+        <img class="card-img-top" src="<%= asset_path 'placeholder.jpg' %>">
         <div class="card-body">
           <p class="card-text"><%= camp_site.description %></p>
           <% if camp_site.price %>
