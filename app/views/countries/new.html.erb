@@ -1,3 +1,5 @@
+<%= render "shared/header" %>
+
 <%= form_with scope: :country, url: country_new_url, local: false do |form| %>
   <p>
     <%= form.label :name, 'Название' %><br>

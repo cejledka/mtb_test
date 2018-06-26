@@ -1,3 +1,5 @@
+<%= render "shared/header" %>
+
 <%= form_with method: :patch, scope: @city, url: city_edit_url(@city.id), local: true do |form| %>
   <p>
     <%= form.label :name, 'Название' %><br>
