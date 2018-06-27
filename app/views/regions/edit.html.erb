@@ -13,6 +13,6 @@
       <%= form.select(:country_id, options_for_select(@countries.map {|country| ["#{country.name} (#{country.currency})", country.id]}), {}, {class: "form-control"}) %>
     </div>
 
-    <%= form.submit 'Добавить', class: "btn btn-primary"%>
+    <%= form.submit 'Обновить', class: "btn btn-primary"%>
   <% end %>
 </div>
