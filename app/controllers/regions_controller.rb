@@ -36,10 +36,10 @@ class RegionsController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
     @region = Region.find(params[:id])
     @region.destroy
-    redirect_to region_index_url
+    redirect_to regions_url
   end
 
   private

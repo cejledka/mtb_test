@@ -35,10 +35,10 @@ class CountriesController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
     @country = Country.find(params[:id])
     @country.destroy
-    redirect_to countries_index_path
+    redirect_to countries_url
   end
 
   private

@@ -1,35 +1,11 @@
 Rails.application.routes.draw do
   root 'camp_sites#list'
 
-  get 'camp_sites', to: 'camp_sites#index'
-  get 'camp_sites/show/:id', to: 'camp_sites#show'
-  get 'camp_sites/edit/:id', to: 'camp_sites#edit'
-  patch 'camp_sites/edit/:id', to: 'camp_sites#update'
-  delete 'camp_sites/delete/:id', to: 'camp_sites#delete'
-  get 'camp_sites/new'
-  post 'camp_sites/new', to: 'camp_sites#create'
+  resources :camp_sites
 
-  get 'cities', to: 'cities#index'
-  get 'cities/show/:id', to: 'cities#show'
-  get 'cities/edit/:id', to: 'cities#edit'
-  patch 'cities/edit/:id', to: 'cities#update'
-  delete 'cities/delete/:id', to: 'cities#delete'
-  get 'cities/new'
-  post 'cities/new', to: 'cities#create'
+  resources :cities
 
-  get 'regions', to: 'regions#index'
-  get 'regions/show/:id', to: 'regions#show'
-  get 'regions/edit/:id', to: 'regions#edit'
-  patch 'regions/edit/:id', to: 'regions#update'
-  delete 'regions/delete/:id', to: 'regions#delete'
-  get 'regions/new'
-  post 'regions/new', to: 'regions#create'
+  resources :regions
 
-  get 'countries', to: 'countries#index'
-  get 'countries/show/:id', to: 'countries#show'
-  get 'countries/edit/:id', to: 'countries#edit'
-  patch 'countries/edit/:id', to: 'countries#update'
-  delete 'countries/delete/:id', to: 'countries#delete'
-  get 'countries/new'
-  post 'countries/new', to: 'countries#create'
+  resources :countries
 end

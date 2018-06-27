@@ -9,7 +9,7 @@
 
   <div class="row justify-content-center mb-3">
     <div class="col-3">
-      <a href="<%= countries_new_url %>" class="btn btn-success" role="button">Добавить</a>
+      <a href="<%= new_country_url %>" class="btn btn-success" role="button">Добавить</a>
     </div>
   </div>
 
@@ -24,10 +24,10 @@
 
     <% @countries.each do |country| %>
       <tr>
-        <td class="align-middle"><a href="<%= country_edit_url(country.id) %>" class="btn btn-warning" role="button"><i class="fa fa-pencil" /></a></td>
+        <td class="align-middle"><a href="<%= edit_country_url(country.id) %>" class="btn btn-warning" role="button"><i class="fa fa-pencil" /></a></td>
         <td class="align-middle"><%= link_to country.name, country_url(country.id) %></td>
         <td class="align-middle"><%= country.currency %></td>
-        <td class="align-middle"><a data-method="delete" href="<%= country_delete_url(country.id) %>" class="btn btn-danger" role="button" data-confirm="Данное действие невозможно отменить. Продолжить?"><i class="fa fa-trash" /></a></td>
+        <td class="align-middle"><a data-method="delete" href="<%= country_url(country.id) %>" class="btn btn-danger" role="button" data-confirm="Данное действие невозможно отменить. Продолжить?"><i class="fa fa-trash" /></a></td>
       </tr>
     <% end %>
   </table>

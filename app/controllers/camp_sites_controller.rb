@@ -53,7 +53,7 @@ class CampSitesController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
     @camp_site = CampSite.find(params[:id])
     @camp_site.destroy
     redirect_to camp_sites_url

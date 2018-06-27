@@ -9,7 +9,7 @@
 
   <div class="row justify-content-center mb-3">
     <div class="col-3">
-      <a href="<%= cities_new_url %>" class="btn btn-success" role="button">Добавить</a>
+      <a href="<%= new_city_url %>" class="btn btn-success" role="button">Добавить</a>
     </div>
   </div>
 
@@ -23,10 +23,10 @@
 
     <% @cities.each do |city| %>
       <tr>
-        <td class="align-middle"><a href="<%= city_edit_url(city.id) %>" class="btn btn-warning " role="button"><i class="fa fa-pencil" /></a></td>
+        <td class="align-middle"><a href="<%= edit_city_url(city.id) %>" class="btn btn-warning " role="button"><i class="fa fa-pencil" /></a></td>
         <td class="align-middle"><%= link_to city.name, city_url(city.id) %></td>
         <td class="align-middle"><%= link_to city.region.name, region_url(city.region.id) %> (<%= link_to city.region.country.name, country_url(city.region.country.id) %>)</td>
-        <td class="align-middle"><a data-method="delete" href="<%= city_delete_url(city.id) %>" class="btn btn-danger" role="button" data-confirm="Данное действие невозможно отменить. Продолжить?"><i class="fa fa-trash" /></a></td>
+        <td class="align-middle"><a data-method="delete" href="<%= city_url(city.id) %>" class="btn btn-danger" role="button" data-confirm="Данное действие невозможно отменить. Продолжить?"><i class="fa fa-trash" /></a></td>
       </tr>
     <% end %>
   </table>

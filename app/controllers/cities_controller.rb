@@ -36,10 +36,10 @@ class CitiesController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
     @city = City.find(params[:id])
     @city.destroy
-    redirect_to city_index_url
+    redirect_to cities_url
   end
 
   private
