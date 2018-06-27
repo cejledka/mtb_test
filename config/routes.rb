@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'camp_sites#index'
+  root 'camp_sites#list'
 
   get 'camp_sites', to: 'camp_sites#index'
   get 'camp_sites/show/:id', to: 'camp_sites#show'

@@ -1,6 +1,11 @@
 class CampSitesController < ApplicationController
   include CampSitesHelper
+
   def index
+    @camp_sites = CampSite.includes(city: {region: :country}).order(:id)
+  end
+
+  def list
     @camp_sites_all = CampSite.includes(city: {region: :country}).order(:id)
     @camp_sites = []
     cols = 3
