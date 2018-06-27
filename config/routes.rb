@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   root 'camp_sites#index'
 
   get 'camp_sites', to: 'camp_sites#index'
-  get 'camp_sites/index'
   get 'camp_sites/show/:id', to: 'camp_sites#show'
   get 'camp_sites/edit/:id', to: 'camp_sites#edit'
   patch 'camp_sites/edit/:id', to: 'camp_sites#update'
@@ -11,7 +10,6 @@ Rails.application.routes.draw do
   post 'camp_sites/new', to: 'camp_sites#create'
 
   get 'cities', to: 'cities#index'
-  get 'cities/index'
   get 'cities/show/:id', to: 'cities#show'
   get 'cities/edit/:id', to: 'cities#edit'
   patch 'cities/edit/:id', to: 'cities#update'
@@ -20,7 +18,6 @@ Rails.application.routes.draw do
   post 'cities/new', to: 'cities#create'
 
   get 'regions', to: 'regions#index'
-  get 'regions/index'
   get 'regions/show/:id', to: 'regions#show'
   get 'regions/edit/:id', to: 'regions#edit'
   patch 'regions/edit/:id', to: 'regions#update'
@@ -29,7 +26,6 @@ Rails.application.routes.draw do
   post 'regions/new', to: 'regions#create'
 
   get 'countries', to: 'countries#index'
-  get 'countries/index'
   get 'countries/show/:id', to: 'countries#show'
   get 'countries/edit/:id', to: 'countries#edit'
   patch 'countries/edit/:id', to: 'countries#update'
