@@ -28,7 +28,7 @@
         <td class="align-middle"><%= link_to camp_site.name, camp_site_url(camp_site.id) %></td>
         <td class="align-middle"><%= link_to camp_site.city.name, city_url(camp_site.city.id) %>, <%= link_to camp_site.city.region.name, region_url(camp_site.city.region.id) %>, <%= link_to camp_site.city.region.country.name, country_url(camp_site.city.region.country.id) %></td>
         <td class="align-middle"><% if camp_site.price %> От <%= camp_site.price %> <%= camp_site.city.region.country.currency %> <% end %></td>
-        <td class="align-middle"><a data-method="delete" href="<%= camp_site_delete_url(camp_site.id) %>" class="btn btn-danger" role="button"><i class="fa fa-trash" /></a></td>
+        <td class="align-middle"><a data-method="delete" href="<%= camp_site_delete_url(camp_site.id) %>" class="btn btn-danger" role="button" data-confirm="Данное действие невозможно отменить. Продолжить?"><i class="fa fa-trash" /></a></td>
       </tr>
     <% end %>
   </table>
