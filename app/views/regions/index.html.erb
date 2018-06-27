@@ -23,10 +23,10 @@
 
     <% @regions.each do |region| %>
       <tr>
-        <td><a href="<%= region_edit_url(region.id) %>" class="btn btn-warning" role="button">✏</a></td>
+        <td><a href="<%= region_edit_url(region.id) %>" class="btn btn-warning" role="button"><i class="fa fa-pencil" /></a></td>
         <td><%= link_to region.name, region_url(region.id) %></td>
         <td><%= link_to region.country.name, country_url(region.country.id) %></td>
-        <td><a data-method="delete" href="<%= region_delete_url(region.id) %>" class="btn btn-danger" role="button">❌ </a></td>
+        <td><a data-method="delete" href="<%= region_delete_url(region.id) %>" class="btn btn-danger" role="button"><i class="fa fa-trash" /></a></td>
       </tr>
     <% end %>
   </table>

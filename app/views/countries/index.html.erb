@@ -24,10 +24,10 @@
 
     <% @countries.each do |country| %>
       <tr>
-        <td class="align-middle"><a href="<%= country_edit_url(country.id) %>" class="btn btn-warning" role="button">✏</a></td>
+        <td class="align-middle"><a href="<%= country_edit_url(country.id) %>" class="btn btn-warning" role="button"><i class="fa fa-pencil" /></a></td>
         <td class="align-middle"><%= link_to country.name, country_url(country.id) %></td>
         <td class="align-middle"><%= country.currency %></td>
-        <td class="align-middle"><a data-method="delete" href="<%= country_delete_url(country.id) %>" class="btn btn-danger" role="button">❌ </a></td>
+        <td class="align-middle"><a data-method="delete" href="<%= country_delete_url(country.id) %>" class="btn btn-danger" role="button"><i class="fa fa-trash" /></a></td>
       </tr>
     <% end %>
   </table>
