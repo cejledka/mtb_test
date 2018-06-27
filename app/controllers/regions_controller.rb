@@ -1,7 +1,7 @@
 class RegionsController < ApplicationController
   include RegionsHelper
   def index
-    @regions = Region.includes(:country).all
+    @regions = Region.includes(:country).all.order(:id)
   end
 
   def show
@@ -19,12 +19,12 @@ class RegionsController < ApplicationController
   end
 
   def new
-    @countries = Country.all
+    @countries = Country.all.order(:id)
   end
 
   def edit
     @region = Region.find(params[:id])
-    @countries = Country.all
+    @countries = Country.all.order(:id)
   end
 
   def update

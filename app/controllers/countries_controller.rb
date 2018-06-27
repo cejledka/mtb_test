@@ -1,7 +1,7 @@
 class CountriesController < ApplicationController
   include CountriesHelper
   def index
-    @countries = Country.all
+    @countries = Country.all.order(:id)
   end
 
   def show

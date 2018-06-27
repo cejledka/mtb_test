@@ -1,7 +1,7 @@
 class CampSitesController < ApplicationController
   include CampSitesHelper
   def index
-    @camp_sites_all = CampSite.includes(city: {region: :country}).all
+    @camp_sites_all = CampSite.includes(city: {region: :country}).order(:id)
     @camp_sites = []
     cols = 3
     row_count = -1
@@ -51,7 +51,7 @@ class CampSitesController < ApplicationController
   def delete
     @camp_site = CampSite.find(params[:id])
     @camp_site.destroy
-    redirect_to camp_site_index_url
+    redirect_to camp_sites_url
   end
 
   private

@@ -1,7 +1,7 @@
 class CitiesController < ApplicationController
   include CitiesHelper
   def index
-    @cities = City.includes(region: :country).all
+    @cities = City.includes(region: :country).all.order(:id)
   end
 
   def show
@@ -19,12 +19,12 @@ class CitiesController < ApplicationController
   end
 
   def new
-    @regions = Region.includes(:country).all
+    @regions = Region.includes(:country).all.order(:id)
   end
 
   def edit
     @city = City.find(params[:id])
-    @regions = Region.includes(:country).all
+    @regions = Region.includes(:country).all.order(:id)
   end
 
   def update

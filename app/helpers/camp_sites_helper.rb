@@ -3,7 +3,7 @@ module CampSitesHelper
     "/camp_sites/show/#{id}"
   end
 
-  def camp_site_index_url
+  def camp_sites_url
     '/camp_sites'
   end
 
